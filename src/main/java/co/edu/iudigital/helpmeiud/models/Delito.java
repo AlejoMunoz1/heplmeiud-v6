@@ -6,6 +6,7 @@ import lombok.Setter;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.List;
 
@@ -22,7 +23,8 @@ public class Delito implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(unique = true, length = 100)
+    @NotNull(message = "Nombre requerido")
+    @Column(unique = true, length = 100, nullable = false)
     String nombre;
 
     @Column
