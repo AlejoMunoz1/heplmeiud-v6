@@ -133,5 +133,4 @@ public class DelitoController {
                 .status(HttpStatus.OK)
                 .body(delitoService.consultarDelitos());
     }
-
 }

@@ -20,7 +20,7 @@ public class Caso implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    Long id;
 
     @Column(name = "fecha_hora")
     LocalDateTime fechaHora;

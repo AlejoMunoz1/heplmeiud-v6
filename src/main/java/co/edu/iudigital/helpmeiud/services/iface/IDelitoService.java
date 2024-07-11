@@ -1,6 +1,5 @@
 package co.edu.iudigital.helpmeiud.services.iface;
 
-import co.edu.iudigital.helpmeiud.exceptions.NotFoundException;
 import co.edu.iudigital.helpmeiud.exceptions.RestException;
 import co.edu.iudigital.helpmeiud.models.Delito;
 
