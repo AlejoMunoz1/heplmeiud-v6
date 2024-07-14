@@ -3,7 +3,6 @@ package co.edu.iudigital.helpmeiud.services.iface;
 import co.edu.iudigital.helpmeiud.dtos.Casos.CasoRequestDTO;
 import co.edu.iudigital.helpmeiud.dtos.Casos.CasoResponseDTO;
 import co.edu.iudigital.helpmeiud.exceptions.RestException;
-import co.edu.iudigital.helpmeiud.models.Caso;
 
 import java.util.List;
 
@@ -17,7 +16,7 @@ public interface ICasoService {
 
     CasoRequestDTO consultarCasoPorId(Long id) throws RestException;
 
-    CasoRequestDTO guardarCaso(CasoRequestDTO caso) throws RestException;
+    CasoResponseDTO guardarCaso(CasoRequestDTO caso) throws RestException;
 
     Boolean visibilizar(Boolean visible, Long id) throws RestException;
 

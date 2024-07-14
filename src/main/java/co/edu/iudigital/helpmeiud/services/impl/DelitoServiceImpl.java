@@ -7,9 +7,11 @@ import co.edu.iudigital.helpmeiud.exceptions.RestException;
 import co.edu.iudigital.helpmeiud.models.Delito;
 import co.edu.iudigital.helpmeiud.repositories.IDelitoRepository;
 import co.edu.iudigital.helpmeiud.services.iface.IDelitoService;
+import co.edu.iudigital.helpmeiud.utils.Messages;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import javax.transaction.Transactional;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -50,9 +52,9 @@ public class DelitoServiceImpl implements IDelitoService { //Como lo voy a hacer
                 .orElseThrow(() ->
                         new NotFoundException(
                                 ErrorDto.builder()
-                                        .error("No encontrado")
-                                        .message("Delito no existe")
-                                        .status(400)
+                                        .error(Messages.NO_ENCONTRADO)
+                                        .message(Messages.DELIT_NO_EXISTE)
+                                        .status(404)
                                         .date(LocalDateTime.now())
                                         .build())
                 );
@@ -61,11 +63,12 @@ public class DelitoServiceImpl implements IDelitoService { //Como lo voy a hacer
         try {
             return delitoRepository.save(delitoBD);
         } catch (Exception e) {
+            log.error("Error actualizando delito casos: {}", e.getMessage());
             throw new InternalServerErrorException(
                     ErrorDto.builder()
                             .error("Error general")
                             .status(500)
-                            .message(e.getMessage())
+                            .message("A ocurrido un error, consulta con el desarrollador")
                             .date(LocalDateTime.now())
                             .build()
             );
@@ -87,9 +90,9 @@ public class DelitoServiceImpl implements IDelitoService { //Como lo voy a hacer
                 .orElseThrow(() ->
                         new NotFoundException(
                                 ErrorDto.builder()
-                                        .error("No encontrado")
-                                        .message("Delito no existe")
-                                        .status(400)
+                                        .error(Messages.NO_ENCONTRADO)
+                                        .message(Messages.DELIT_NO_EXISTE)
+                                        .status(404)
                                         .date(LocalDateTime.now())
                                         .build())
                 );

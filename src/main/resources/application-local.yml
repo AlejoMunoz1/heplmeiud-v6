@@ -8,10 +8,12 @@ spring:
   # conexion base de datos
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: ${DATABASEURL}
-    username: ${DATABASE_USERNAME}
-    password: ${DATABASE_PASSWORD}
+    url: jdbc:mysql://localhost:3306/helpme_iud
+    username: root
+    password:
   # generar tablas con codigo java
   jpa:
     hibernate:
       ddl-auto: update
+    show-sql: true
+    defer-datasource-initialization: true
