@@ -2,11 +2,10 @@ package co.edu.iudigital.helpmeiud.utils;
 
 public interface Messages {
 
-
-    /*Errores mensajes Delitos*/
-
+    /**
+     * ERRORES MENSAJES DELITOS
+     */
     String NO_ENCONTRADO = "No encontrado";
 
-    String DELIT_NO_EXISTE = "Delito no existe";
-
+    String DELIT_NO_EXISTE = "Delito No existe";
 }

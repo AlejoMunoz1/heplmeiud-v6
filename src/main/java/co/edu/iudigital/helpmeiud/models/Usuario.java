@@ -1,10 +1,10 @@
 package co.edu.iudigital.helpmeiud.models;
 
+
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.FieldDefaults;
-
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -22,9 +22,9 @@ public class Usuario implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    Long id;
 
-    @Column(unique = true, length = 120)
+    @Column(unique = true, length = 120, updatable = false)
     String username;
 
     @Column(length = 120, nullable = false)
@@ -48,7 +48,7 @@ public class Usuario implements Serializable {
     @Column
     String image;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.EAGER) //EAGER
     @JoinTable(
             name = "roles_usuarios",
             joinColumns = {@JoinColumn(name = "usuarios_id")},

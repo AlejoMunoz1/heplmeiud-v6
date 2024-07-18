@@ -1,5 +1,4 @@
-package co.edu.iudigital.helpmeiud.dtos.Casos;
-
+package co.edu.iudigital.helpmeiud.dtos.casos;
 
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -7,14 +6,15 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.FieldDefaults;
 
-import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Getter
 @Setter
 @Builder
-public class CasoRequestDTO {
+public class CasoResponseDTO {
+
+    Long id;
 
     LocalDateTime fechaHora;
 
@@ -24,15 +24,15 @@ public class CasoRequestDTO {
 
     Float altitud;
 
+    Boolean visible;
+
     String descripcion;
 
     String urlMapa;
 
     String rmiUrl;
 
-    @NotNull(message = "usuario ID requerido")
-    Long usuarioId;
+    String username;
 
-    @NotNull(message = "delito ID requerido")
     Long delitoId;
 }

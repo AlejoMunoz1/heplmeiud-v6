@@ -8,7 +8,7 @@ import lombok.experimental.FieldDefaults;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
-import java.util.List;
+import java.time.LocalDateTime;
 
 @Entity
 @FieldDefaults(level = AccessLevel.PRIVATE)
@@ -21,7 +21,7 @@ public class Delito implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    Long id;
 
     @NotNull(message = "Nombre requerido")
     @Column(unique = true, length = 100, nullable = false)
@@ -34,4 +34,21 @@ public class Delito implements Serializable {
     @JoinColumn(name = "usuarios_id")
     Usuario usuario;
 
+    @Column(name = "created_at", updatable = false)
+    LocalDateTime createdAt;
+
+    @Column(name = "updated_at")
+    LocalDateTime updatedAt;
+
+    @PrePersist
+    public void prePersist() {
+        if(createdAt == null) {
+            createdAt = LocalDateTime.now();
+        }
+    }
+
+    @PreUpdate
+    public void preUpdate() {
+        updatedAt = LocalDateTime.now();
+    }
 }

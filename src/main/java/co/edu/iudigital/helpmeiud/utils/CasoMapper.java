@@ -1,6 +1,6 @@
 package co.edu.iudigital.helpmeiud.utils;
 
-import co.edu.iudigital.helpmeiud.dtos.Casos.CasoResponseDTO;
+import co.edu.iudigital.helpmeiud.dtos.casos.CasoResponseDTO;
 import co.edu.iudigital.helpmeiud.models.Caso;
 import org.springframework.stereotype.Component;
 

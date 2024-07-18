@@ -1,7 +1,6 @@
 package co.edu.iudigital.helpmeiud.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,6 +19,13 @@ public class Role implements Serializable {
 
     static final long serialVersionUID = 1L;
 
+    public Role(){
+    }
+
+    public Role(Long id) {
+        this.id = id;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
@@ -30,4 +36,9 @@ public class Role implements Serializable {
     @Column
     String descripcion;
 
+    // bidireccional
+    // Opcional
+   /* @ManyToMany(mappedBy = "roles")
+    @JsonBackReference
+    List<Usuario> usuarios;*/
 }

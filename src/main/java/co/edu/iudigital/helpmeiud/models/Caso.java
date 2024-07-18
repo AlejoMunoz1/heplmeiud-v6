@@ -1,5 +1,6 @@
 package co.edu.iudigital.helpmeiud.models;
 
+
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
@@ -14,7 +15,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Table(name = "casos")
-public class Caso implements Serializable{
+public class Caso implements Serializable {
 
     static final long serialVersionUID = 1L;
 
@@ -51,7 +52,6 @@ public class Caso implements Serializable{
     Usuario usuario;
 
     @ManyToOne
-    @JoinColumn (name = "deitos_id")
+    @JoinColumn(name = "delitos_id")
     Delito delito;
-
-    }
+}
